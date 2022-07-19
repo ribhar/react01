@@ -5,13 +5,17 @@ function App() {
   // const data = "Hello c1";
   // const newData = "Hello c2";
 
-  const handleChange = (value)=>{
-    console.log("hello",value)
+  const [msg, setMsg] = useState('')
+
+  const getData = (value)=>{
+    console.log("hello",value);
+    setMsg(value);
   }
 
   return (
     <>
-      <First2 datafun={handleChange}/>
+      <First2 datafun={getData}/>
+      <Second2 msg={msg}/>
     </>
     
   )
@@ -46,6 +50,15 @@ function Second(){
 
 function First2({datafun}){
   const data = "test";
+  // console.log("pre fn called print data",data)
   datafun(data);
   return <div>First Child</div>
+}
+
+// sibling to sibling
+
+function Second2({msg}){
+  
+  console.log("2nd god msg", msg)
+  return <div>Second Child</div>
 }
