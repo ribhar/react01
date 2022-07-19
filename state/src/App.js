@@ -2,22 +2,27 @@ import {useState} from 'react'
 import './App.css';
 
 function App() {
-  const data = "Hello c1";
+  // const data = "Hello c1";
   // const newData = "Hello c2";
 
-  const cb = (value)=>{
-    console.log("hellow",value)
+  const handleChange = (value)=>{
+    console.log("hello",value)
   }
 
-  return First2(cb)
   return (
-    <div className="App">
-      <First data={data}/>
-      <Second/>
+    <>
+      <First2 datafun={handleChange}/>
+    </>
+    
+  )
+  // return (
+  //   <div className="App">
+  //     <First data={data}/>
+  //     <Second/>
 
 
-    </div>
-  );
+  //   </div>
+  // );
 }
 
 export default App;
@@ -37,9 +42,10 @@ function Second(){
 }
 
 
-// child to parent
+// child to parent...................
 
-function First2(cb){
+function First2({datafun}){
   const data = "test";
-  cb(data);
+  datafun(data);
+  return <div>First Child</div>
 }
